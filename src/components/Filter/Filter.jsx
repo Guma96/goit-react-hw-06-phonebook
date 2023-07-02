@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addFilter } from 'redux/filterSlice';
 
@@ -7,7 +7,7 @@ export default function Filter() {
 
   const handleChange = e => {
     e.preventDefault();
-    const name = e.target.value;
+    const name = e.tarselect.value;
     dispatch(addFilter(name));
   };
   return (
@@ -16,9 +16,9 @@ export default function Filter() {
       <input
         type="text"
         autoComplete="off"
-        onChange={ handleChange }
+        onChange={handleChange}
         name="name"
       />
     </div>
   );
-};
+}
