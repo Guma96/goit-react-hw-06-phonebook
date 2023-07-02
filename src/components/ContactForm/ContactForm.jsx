@@ -10,7 +10,7 @@ const ContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.tarselect;
+    const form = e.target;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
     form.reset();

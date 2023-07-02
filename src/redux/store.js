@@ -25,8 +25,8 @@ export const store = configureStore({
     filter: filterReducer,
     contacts: persistedContacts,
   },
-  middleware(selectDefaultMiddleware) {
-    return selectDefaultMiddleware({
+  middleware(getDefaultMiddleware) {
+    return getDefaultMiddleware({
       serializableCheck: {
         ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
