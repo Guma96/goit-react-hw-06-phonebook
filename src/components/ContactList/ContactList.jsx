@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ContactList.module.css';
 import { useSelector } from 'react-redux';
-import { getContacts, getFilter } from 'redux/selectors';
+import { selectContacts, selectFilter } from 'redux/selectors';
 import { Contact } from 'components/Contact/Contact';
 
 const ContactList = ({ contact }) => {
-  const contacts = useSelector(getContacts);
-  const { input } = useSelector(getFilter);
+  const contacts = useSelector(selectContacts);
+  const { input } = useSelector(selectFilter);
 
   if (!contacts) {
     return null;
