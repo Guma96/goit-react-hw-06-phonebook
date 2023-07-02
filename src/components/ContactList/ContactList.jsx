@@ -2,19 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ContactList.module.css';
 import { useSelector } from 'react-redux';
-import { selectContacts, selectFilter } from 'redux/selectors';
-import { Contact } from 'components/Contact/Contact';
+import { selectContacts, selectFilter } from '../../redux/selectors';
+import Contact from '../Contact/Contact';
 
-const ContactList = ({ contact }) => {
+const ContactList = () => {
   const contacts = useSelector(selectContacts);
-  const { input } = useSelector(selectFilter);
+  const input = useSelector(selectFilter);
 
   if (!contacts) {
     return null;
   }
-  const visibleContacts = contacts.value.filter(contact =>
+
+  const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(input.toLowerCase())
   );
+
   return (
     <ul className={styles.List}>
       {visibleContacts.map(contact => (
@@ -27,8 +29,8 @@ const ContactList = ({ contact }) => {
 };
 
 ContactList.propTypes = {
-  contact: PropTypes.object,
-  contacts: PropTypes.object,
+  contacts: PropTypes.arrayOf(PropTypes.object),
   input: PropTypes.string,
 };
+
 export default ContactList;
