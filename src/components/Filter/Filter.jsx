@@ -7,7 +7,7 @@ export default function Filter() {
 
   const handleChange = e => {
     e.preventDefault();
-    const name = e.tarselect.value;
+    const name = e.target.value;
     dispatch(addFilter(name));
   };
   return (
